@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>valeNimi4 Vikisuhtlus</title>
+<style>.kasutaja {float: right; background-color: lightgray;}
+p, a, input {font-family: serif; font-size: 15px;}
+a, a:visited, a:link {color: blue; text-decoration: none;}
+a:hover {text-decoration: underline}
+input {border: solid 2px black; padding: 0; height: 15px; border-radius: 0; background-color: white;}
+body {background-image: linear-gradient(90deg, lightgray, white); background-size: cover; height: 100vh;}
+a:visited, a:link, a{color: blue; text-decoration: underline;}
+.new {visibility: hidden;}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div style="position: fixed; top: 0; right: 0;">
+<a onclick="window.scrollTo({top:0, behavior: 'smooth'})">&uarr;</a><br>
+<a onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})">&darr;</a>
+</div>
+<img src="vikivestlus_must_kiri.png" height=20 style="position: fixed; top: 0; left: 0;">
+<p id="tekst" style="margin: 20px 20px 100px 20px"><b style="color: red">BEETA</b><br>See leht on mõeldud selleks, et saaksid suhelda nagu internetis sõpradega või tehisintellektiga, aga tegelikult otsid
+<a href="https://et.wikipedia.org">vikipeediast</a>. See on kasulik, kui oled "haugi mäluga"<br>Selle lehe tegi <a href="/">valeNimi4</a><br>
+Leht on alles arenduses, see ei ole täiuslik. Vikivestlus kasutab Mediawiki Action API. Kui tahate kasutada teist Mediawikit (või kui sulle meeldib jamada) vajuta
+<a onclick="document.getElementById('mediawiki').style.visibility = 'visible'">siia</a><br><input id="mediawiki" style="visibility: hidden" value="https://et.wikipedia.org">
+</p>
+<div style="width: calc(100% - 40px); height: 20px; position: fixed; bottom: 0; left:30px;"><input id="input" style="width: calc(100% - 55px)"><a onclick="otsi(input.value)">&rarr;</a></div>
+<script>
+function otsi (otsing) {fetch(mw.value+"/w/api.php?action=parse&page="+otsing+"&format=json&origin=*").then(vastus => {return vastus.json()}).then(info => { try {
+html = info.parse.text["*"];
+html = html.replace(/<a\s+href="\/wiki\/([^"]+)"/g, (match, p1) => {
+  return `<a href="#${p1}"`;
+});
+html = html.replaceAll("//", 'https://');
+html = html.replaceAll("https:https://", 'https://');
+tekst.innerHTML += '<br><i class="kasutaja">'+otsing+"</i><br>" + html;} catch (err) {tekst.innerHTML += '<br><i class="kasutaja">'+otsing+"</i><br>" + "Artikkel ilmselt ei eksisteeri!"; console.log(err)}
+input.value = "";}).catch(err => {tekst.innerHTML += '<br><i class="kasutaja">'+otsing+"</i><br>Viga! Kas netiühendus on olemas?"; console.log(err); input.value = "";})}
+var html = "";
+var input = document.getElementById("input");
+var tekst = document.getElementById("tekst");
+var mw = document.getElementById("mediawiki");
+if (window.location.hash) {otsi(decodeURIComponent(window.location.hash).slice(1))}
+input.addEventListener("keydown", function (event) { if (event.key == "Enter") {otsi(input.value)}});
+window.addEventListener('hashchange', function (event) {otsi(decodeURIComponent(window.location.hash).slice(1))})
+</script>
+</body>
+</html>
