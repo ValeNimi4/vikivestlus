@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html><head><title>rohkem - vikivestlus</title></head><meta name="viewport" content="width=device-width, initial-scale=1" /><body>
-<a style="height: 20px;" onclick="window.history.back();">&larr;tagasi <img src="vikivestlus.svg" height="20"></a><br>
+<html><head><title>rohkem - vikivestlus</title></head><meta name="viewport" content="width=device-width, initial-scale=1" /><body style="margin: none">
+<a style="height: 20px; margin: none;" onclick="window.history.back();">&larr;tagasi <img src="vikivestlus.svg" height="20"></a><br>
 <iframe id="iframe" style="width: 100%; border: none; margin: none; height: calc(100vh - 20px)">...</iframe>
-<script>document.getElementById("iframe").src = location.hash.slice(1)</script></body></html>
+<script>document.getElementById("iframe").src = "https://et.wikipedia.org/api/rest_v1/page/mobile-html/"
++ location.hash.slice(1)</script></body></html>
