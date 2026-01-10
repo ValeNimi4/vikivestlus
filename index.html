@@ -35,8 +35,8 @@ html = html.replace(/<a\s+href="\/wiki\/([^"]+)"/g, (match, p1) => {
 });
 html = html.replaceAll("//", 'https://');
 html = html.replaceAll("https:https://", 'https://');*/
-tekst.innerHTML += '<br><i class="kasutaja">'+otsing+"</i><br>" + html; } catch (err) {tekst.innerHTML += '<br><i href="'+"rohkem.html#"+otsing+'" class="kasutaja mittelink">'+otsing+"</i><br>" + "Artikkel ilmselt ei eksisteeri!"; console.log(err)}
-input.value = "";}).catch(err => {tekst.innerHTML += '<br><a class="kasutaja mittelink">'+otsing+"</i><br>Viga! Kas netiühendus on olemas?"; console.log(err); input.value = "";})}
+tekst.innerHTML += '<br><a href="'+"rohkem.html#"+otsing+'" class="kasutaja mittelink">'+otsing+"</a><br>" + html; } catch (err) {'<br><i class="kasutaja">'+otsing+"</i><br>" + "Artikkel ilmselt ei eksisteeri!"; console.log(err)}
+input.value = "";}).catch(err => {tekst.innerHTML += '<br><a class="kasutaja mittelink">'+otsing+"</a><br>Viga! Kas netiühendus on olemas?"; console.log(err); input.value = "";})}
 var html = "";
 var input = document.getElementById("input");
 var tekst = document.getElementById("tekst");
