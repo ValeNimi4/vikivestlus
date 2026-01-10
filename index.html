@@ -5,8 +5,10 @@
   <title>vikivestlus</title>
   <style>
     input {all: unset; text-align: left; border: solid 2px white; padding: 0; height: 15px; margin: 10px; width: 75%; border-radius: 0; background-color: black; color: white; font-family: serif;}
-    body {background-image: linear-gradient(black, darkgreen); background-size: cover; height: 100vh; text-align: center}
+    body {background-image: linear-gradient(black, darkgreen); background-size: cover; height: 100vh; text-align: center;}
+    div {text-align: left; width: 75%; margin: auto;}
     #vikivestlus {height: 50px; margin-top: 40vh;}
+    p, a, input {font-family: serif; font-size: 15px; color: white}
     a:visited, a:link, a{color: lightblue; text-decoration: none;}
     .mittelink {background-color: lightblue; color: black !important;}
   </style>
@@ -14,12 +16,13 @@
 <body>
   <img id="vikivestlus" src="vikivestlus.svg"><br>
   <input id="sisesta"><a class="mittelink" onclick="otsi(document.getElementById('sisesta').value)">&rarr;</a><br>
-  <p id="tekst" style="margin: 20px 20px 100px 20px"><img src="vikivestlus_kiri.svg" height=20><br>Vikivestlus on mõeldud selleks, et saaksid suhelda nagu internetis sõpradega või tehisintellektiga, aga tegelikult otsid
+  <div><p id="tekst">Vikivestlus on mõeldud selleks, et saaksid suhelda nagu internetis sõpradega või tehisintellektiga, aga tegelikult otsid
 <a href="https://et.wikipedia.org">vikipeediast</a>. See on kasulik, kui oled "haugi mäluga"<br>Selle lehe tegi <a href="/">valeNimi4</a><br>
 Vajuta paremal olevale Sinu päritud artiklile suures vaates vaatamiseks. Vikivestlus kasutab Mediawiki Action API.
-</p>
+</p></div>
   <script>
     function otsi(otsing) {window.location.replace("vestlus.html#"+otsing)}
     document.getElementById("sisesta").addEventListener("keydown", function (event) { if (event.key == "Enter") {otsi(document.getElementById('sisesta').value)}});
   </script>
 </body>
+</html>
