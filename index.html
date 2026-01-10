@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>vikivestlus</title>
   <style>
-    input {all: unset; border: solid 2px white; padding: 0; height: 15px; border-radius: 0; background-color: black; color: white; font-family: serif;}
+    input {all: unset; border: solid 2px white; padding: 0; height: 15px; margin: 10px; width: 75%; border-radius: 0; background-color: black; color: white; font-family: serif;}
     body {background-color: black; text-align: center}
     #vikivestlus {height: 50px; margin-top: 40vh;}
     #vale {height: 25px;}
@@ -15,7 +15,7 @@
 <body>
   <img id="vikivestlus" src="vikivestlus.svg"><br>
   <input id="sisesta"><a class="mittelink" onclick="otsi(document.getElementById('sisesta').value)">&rarr;</a><br>
-  <a href="/"><img src="/logo.svg"></a>
+  <a href="/"><img src="/logo.svg" id="vale"></a>
   <script>
     function otsi(otsing) {window.location.replace("vestlus.html#"+otsing)}
     document.getElementById("sisesta").addEventListener("keydown", function (event) { if (event.key == "Enter") {otsi(input.value)}});
