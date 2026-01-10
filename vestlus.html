@@ -36,7 +36,7 @@ html = html.replace(/<a\s+href="\/wiki\/([^"]+)"/g, (match, p1) => {
 });
 html = html.replaceAll("//", 'https://');
 html = html.replaceAll("https:https://", 'https://');*/
-tekst.innerHTML += '<br><a href="'+"rohkem.html#"+otsing+'" class="kasutaja mittelink">'+otsing+"</a><br>" + html; } else {'<br><a class="kasutaja mittelink">'+otsing+"</a><br>Artikkel ei eksisteeri!";}
+tekst.innerHTML += '<br><a href="'+"rohkem.html#"+otsing+'" class="kasutaja mittelink">'+otsing+"</a><br>" + html; } else {tekst.innerHTML += '<br><a class="kasutaja mittelink">'+otsing+"</a><br>Artikkel ei eksisteeri!";}
 input.value = "";}).catch(err => {tekst.innerHTML += '<br><a class="kasutaja mittelink">'+otsing+"</a><br>Viga! Kas netiühendus on olemas?"; console.log(err); input.value = "";})}
 var html = "";
 var input = document.getElementById("input");
