@@ -26,17 +26,17 @@ Vajuta paremal olevale Sinu päritud artiklile suures vaates vaatamiseks. Vikive
 <div style="width: calc(100% - 40px); height: 20px; position: fixed; bottom: 0; left:30px;"><input id="input" style="width: calc(100% - 55px)"><a class="mittelink" onclick="otsi(input.value)">&rarr;</a></div>
 <script>
 function otsi (otsing) {window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
-fetch(mw.value+"/w/api.php?action=query&titles="+otsing+"&prop=extracts&format=json&exintro=1&explaintext=1&redirects=1&origin=*").then(vastus => {return vastus.json()}).then(info => { try {
+fetch(mw.value+"/w/api.php?action=query&titles="+otsing+"&prop=extracts&format=json&exintro=1&explaintext=1&redirects=1&origin=*").then(vastus => {return vastus.json()}).then(info => {
   lehed = info.query.pages;
   html = Object.values(lehed)[0].extract;
-  if (!html) {throw;}
+  if (html) {
 /*html = info.parse.text["*"];
 html = html.replace(/<a\s+href="\/wiki\/([^"]+)"/g, (match, p1) => {
   return `<a href="#${p1}"`;
 });
 html = html.replaceAll("//", 'https://');
 html = html.replaceAll("https:https://", 'https://');*/
-tekst.innerHTML += '<br><a href="'+"rohkem.html#"+otsing+'" class="kasutaja mittelink">'+otsing+"</a><br>" + html; } catch (err) {'<br><i class="kasutaja">'+otsing+"</i><br>" + "Artikkel ilmselt ei eksisteeri!"; console.log(err)}
+tekst.innerHTML += '<br><a href="'+"rohkem.html#"+otsing+'" class="kasutaja mittelink">'+otsing+"</a><br>" + html; } else {'<br><i class="kasutaja">'+otsing+"</i><br>" + "Artikkel ilmselt ei eksisteeri!"; console.log(err)}
 input.value = "";}).catch(err => {tekst.innerHTML += '<br><a class="kasutaja mittelink">'+otsing+"</a><br>Viga! Kas netiühendus on olemas?"; console.log(err); input.value = "";})}
 var html = "";
 var input = document.getElementById("input");
