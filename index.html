@@ -28,7 +28,7 @@ Leht on alles arenduses, see ei ole täiuslik. Vikivestlus kasutab Mediawiki Act
 function otsi (otsing) {window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
 fetch(mw.value+"/w/api.php?action=query&titles="+otsing+"&prop=extracts&format=json&exintro=1&explaintext=1&origin=*").then(vastus => {return vastus.json()}).then(info => { try {
   lehed = info.query.pages;
-  html = Object.values(lehed)[0].extracts;
+  html = Object.values(lehed)[0].extract;
 /*html = info.parse.text["*"];
 html = html.replace(/<a\s+href="\/wiki\/([^"]+)"/g, (match, p1) => {
   return `<a href="#${p1}"`;
