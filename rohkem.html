@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html><head><title>Palun oota</title></head><meta name="viewport" content="width=device-width, initial-scale=1" /><body style="margin: none">
 Palun oota... <script>
-fetch("https://et.wikipedia.org/api/rest_v1/page/mobile-html/"+location.href.split(1))
+fetch("https://et.wikipedia.org/api/rest_v1/page/mobile-html/"+location.hash.split(1))
   .then(r => r.text())
   .then(html => {
     document.open();
