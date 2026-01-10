@@ -26,9 +26,10 @@ Leht on alles arenduses, see ei ole täiuslik. Vikivestlus kasutab Mediawiki Act
 <div style="width: calc(100% - 40px); height: 20px; position: fixed; bottom: 0; left:30px;"><input id="input" style="width: calc(100% - 55px)"><a class="mittelink" onclick="otsi(input.value)">&rarr;</a></div>
 <script>
 function otsi (otsing) {window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
-fetch(mw.value+"/w/api.php?action=query&titles="+otsing+"&prop=extracts&format=json&exintro=1&explaintext=1&origin=*").then(vastus => {return vastus.json()}).then(info => { try {
+fetch(mw.value+"/w/api.php?action=query&titles="+otsing+"&prop=extracts&format=json&exintro=1&explaintext=1&redirects=1&origin=*").then(vastus => {return vastus.json()}).then(info => { try {
   lehed = info.query.pages;
   html = Object.values(lehed)[0].extract;
+  if (!html) {throw false;}
 /*html = info.parse.text["*"];
 html = html.replace(/<a\s+href="\/wiki\/([^"]+)"/g, (match, p1) => {
   return `<a href="#${p1}"`;
