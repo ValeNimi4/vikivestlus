@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="85.211052mm"
+   height="83.789314mm"
+   viewBox="0 0 85.211052 83.789314"
    version="1.1"
    id="svg1"
    inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
@@ -25,8 +25,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.0167041"
-     inkscape:cx="28.031755"
-     inkscape:cy="496.21125"
+     inkscape:cx="-105.73381"
+     inkscape:cy="88.029547"
      inkscape:window-width="1920"
      inkscape:window-height="1046"
      inkscape:window-x="-11"
@@ -63,7 +63,7 @@
        inkscape:collect="always"
        xlink:href="#linearGradient1"
        id="linearGradient2"
-       x1="92.973864"
+       x1="92.973862"
        y1="137.06604"
        x2="145.55978"
        y2="137.06604"
@@ -75,7 +75,7 @@
        id="linearGradient3"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-21.3626,7.0780057)"
-       x1="92.973864"
+       x1="92.973862"
        y1="137.06604"
        x2="145.55978"
        y2="137.06604" />
@@ -109,7 +109,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Kiht 2">
+     inkscape:label="Kiht 2"
+     transform="translate(-35.470228,-107.9862)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:109.004px;font-family:Serif;-inkscape-font-specification:Serif;writing-mode:lr-tb;direction:ltr;fill:url(#linearGradient2);fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-miterlimit:2.1"
@@ -139,16 +140,17 @@
        y="0"
        xlink:href="#text1"
        id="use4"
-       style="filter:url(#filter6)" />
+       style="mix-blend-mode:normal;filter:url(#filter6)" />
     <use
        x="0"
        y="0"
        xlink:href="#text1-4"
        id="use5"
-       style="filter:url(#filter5)" />
+       style="mix-blend-mode:normal;filter:url(#filter5)" />
   </g>
   <g
      inkscape:label="Kiht 1"
      inkscape:groupmode="layer"
-     id="layer1" />
+     id="layer1"
+     transform="translate(-35.470228,-107.9862)" />
 </svg>
